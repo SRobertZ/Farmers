@@ -15,6 +15,7 @@ myApp.directive('loggedInPage', ['API', 'authorization','auth', function (API,au
                     $scope.tabs[x].selected = false;
                     if($scope.tabs[x].Id === id){
                         $scope.tabs[x].selected = true;
+                        $scope.showProfile = false;
                         if (!$scope.tabs[x].presentation){
                             var i = x;
                             API.getPresentation($scope.tabs[x].presentationLink).then(function(data){
@@ -27,7 +28,9 @@ myApp.directive('loggedInPage', ['API', 'authorization','auth', function (API,au
                 };
             };
 
-            $scope.newSelect($scope.tabs[0].Id);
+            //$scope.newSelect($scope.tabs[0].Id);
+
+            $scope.showProfile = true;
         }
     }
 }]);

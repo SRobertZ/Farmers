@@ -7,7 +7,7 @@ myApp.directive('loggedInPage', ['API', 'authorization','auth', function (API,au
             $scope.tabs = [
                 {Id:1, Name:'График платежей', presentationLink:'presentations/paymentPage.html'},
                 {Id:2, Name:'Карта фермеров', presentationLink:'presentations/mapPage.html'},
-                {Id:3, Name:'Форум', presentationLink:'presentations/mapPage.html'},
+                {Id:3, Name:'Форум', presentationLink:'presentations/forumPage.html'},
             ];
 
             $scope.newSelect = function(id){
@@ -15,11 +15,13 @@ myApp.directive('loggedInPage', ['API', 'authorization','auth', function (API,au
                     $scope.tabs[x].selected = false;
                     if($scope.tabs[x].Id === id){
                         $scope.tabs[x].selected = true;
-                        if (!$scope.tabs[x].presentation)
+                        if (!$scope.tabs[x].presentation){
+                            var i = x;
                             API.getPresentation($scope.tabs[x].presentationLink).then(function(data){
-                                $scope.tabs[x].presentation = data.data;
-                                $scope.selectedTab = $scope.tabs[x];
+                                $scope.tabs[i].presentation = data.data;
+                                $scope.selectedTab = $scope.tabs[i];
                             });
+                        }    
                         else $scope.selectedTab = $scope.tabs[x];
                     }
                 };

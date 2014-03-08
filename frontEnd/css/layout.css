@@ -1,0 +1,123 @@
+
+/*
+*	OUTER LAYOUT RESIZERS & TOGGLERS
+*/
+
+/* north-pane is not resizable
+.resizer-north-dragging ,
+.resizer-north:hover		{ background: url(../img/resizable-n.gif) repeat-x center; }*/
+.resizer-south-dragging ,
+.resizer-south:hover		{ cursor: row-resize!important}
+
+.resizer-west-dragging ,
+.resizer-west-open:hover	{ cursor: col-resize!important}
+.resizer-east-dragging ,
+.resizer-east-open:hover	{ cursor: col-resize!important}
+
+.resizer-west-open ,
+.resizer-east-open {
+
+}
+.resizer-west-open:hover ,
+.resizer-east-open:hover {
+
+}
+.resizer-dragging {
+    background-color: #777;
+}
+.resizer-dragging-limit	{ background: #FF3300 !important; }
+
+
+
+/*
+*	SIMPLE TOGGLER BUTTONS (used on Outer Layout North/South only)
+*/
+.resizer-open .toggler {display: none!important;}
+.toggler-north-open ,
+.toggler-south-closed 		{}
+.toggler-north-closed ,
+.toggler-south-open   		{}
+
+/*
+
+.toggler-east-closed ,
+.toggler-west-open    { background: url(../images/pin.png) no-repeat center right; }
+.toggler-west-closed ,
+.toggler-east-open    { background: url(../images/pin.png) no-repeat center left; }
+*/
+
+
+/*
+*	extJS-STYLE RESIZER/SLIDER-BAR (CLOSED)
+*/
+
+
+/*.toggler-west-closed
+{
+    font-size: 12px; *//* IMPORTANT: default = 1px *//*
+    font-weight: bold;
+    text-align: center;
+    background: url(../images/pin.png) no-repeat center left;
+}*/
+
+
+.resizer-west-closed ,
+.resizer-east-closed {
+    background: #e8e8e8;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 1px #444;
+
+}
+.resizer-west-closed{
+    border-radius: 0 2px 2px 0;
+}
+.resizer-east-closed{
+    border-radius: 2px 0 0 2px;
+}
+.resizer-west-closed:hover ,
+.resizer-east-closed:hover {
+    background: #eee;
+}
+
+
+/* CUSTOM pin/close buttons */
+span.button-pin ,
+span.button-close {
+    position:	absolute;
+    top:		0;
+    width: 		20px;
+    height:		30px;
+    z-index:	2;
+    display:	block;
+    cursor: 	pointer;
+}
+span.button-close-west	{ left:	 0; }
+span.button-close-east	{ right: 0; }
+
+
+
+/* CUSTOM pin-buttons */
+span.button-pin-up 		  		{ background: url(../images/pin.png) no-repeat center; }
+span.button-pin-up:hover   		{}
+span.button-pin-down 	  		{ background: url(../images/pin.png) no-repeat center; }
+span.button-pin-down:hover 		{}
+
+span.button-pin-west-down    { right: 5px;  background: url(../images/arrow_left.png) no-repeat center;}
+span.button-pin-east-down    { left:  5px; background: url(../images/arrow_right.png) no-repeat center;}
+
+span.button-pin-west-up    { right: 5px;  background: url(../images/pin.png) no-repeat center;}
+span.button-pin-east-up    { left:  5px; background: url(../images/pin.png) no-repeat center;}
+
+/* CUSTOM close-buttons */
+span.button-close-west			{ }
+span.button-close-west:hover	{ }
+span.button-close-east			{ }
+span.button-close-east:hover	{ }
+
+
+
+/* STANDARD toggler-buttons - when the east/west panes are 'closed' */
+.toggler-west-closed		{ height: 30px!important; background: url(../images/arrow_right.png) no-repeat center; }
+.toggler-west-closed:hover	{}
+.toggler-east-closed		{ height: 30px!important; background: url(../images/arrow_left.png) no-repeat center; }
+.toggler-east-closed:hover	{ }

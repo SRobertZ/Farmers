@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Союз фермеров</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    
+
+        <script src="lib/angular.js"></script>
+        <script src="lib/angular-local-storage.js"></script>
+        <script src="lib/jquery.min.js"></script>
+        <script src="lib/jquery.svg.js"></script>
+        <script src="lib/jquery.svgdom.js"></script>
+
+        
+        <script src="scripts/services.js"></script>
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/MainCtrl.js"></script>
+        <script src="scripts/directives.js"></script>
+        <script src="scripts/directives/loginHeader.js"></script>
+        <script src="scripts/directives/loginPage.js"></script>
+        <script src="scripts/directives/loggedHeader.js"></script>
+        <script src="scripts/directives/tab.js"></script>
+        <script src="scripts/directives/footer.js"></script>
+        <script src="scripts/directives/loggedInPage.js"></script>
+        <script src="scripts/directives/compileView.js"></script>
+        <script src="scripts/directives/map.js"></script>
+
+</head>
+<body ng-app="Farmers" ng-controller="MainCtrl">
+    <header>
+        <div class="wrap">
+            <a href="#" class="logo">Союз фермеров Башкортостана</a>
+            <div class="login">
+                <div ng-if="!user" login-header></div>
+                <div ng-if="user" logged-header></div>
+            </div>
+        </div>
+    </header>
+    <div ng-if="!user" login-page></div>
+    <div ng-if="user" logged-in-page></div>
+</body>
+</html>

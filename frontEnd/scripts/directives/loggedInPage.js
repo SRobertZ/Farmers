@@ -5,7 +5,7 @@ myApp.directive('loggedInPage', ['API', 'authorization','auth', function (API,au
         templateUrl:"partials/LoggedInPage.html",
         controller:function($scope, $element){
             $scope.tabs = [
-                {Id:1, Name:'График платежей', presentationLink:'presentations/mapPage.html'},
+                {Id:1, Name:'График платежей', presentationLink:'presentations/paymentPage.html'},
                 {Id:2, Name:'Карта фермеров', presentationLink:'presentations/mapPage.html'},
                 {Id:3, Name:'Форум', presentationLink:'presentations/mapPage.html'},
             ];

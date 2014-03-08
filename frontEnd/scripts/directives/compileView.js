@@ -13,7 +13,7 @@ myApp.directive('compile', function($compile) {
              // assign it into the current DOM
              //element.html(value);
 				
-			 if (scope.oldScope) scope.oldScope.$destroy();
+			 if (scope.oldScope) {scope.oldScope.$destroy(); element.html('')}
              // compile the new DOM and link it to the current
              // scope.
              // NOTE: we only compile .childNodes so that

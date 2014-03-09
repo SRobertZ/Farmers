@@ -10,7 +10,10 @@ var schema = mongoose.Schema({
 	salt:{type:String, required:true},
 	created:{type:Date, default:Date.now()},
 	token:{type:String, default:_hash(''+Date.now(), ''+Date.now()), index:true, required:true},
-	cityId:{type:String}
+	cityId:{type:String, index:true},
+	avatarLink:String,
+	blackListd:{type:Boolean, default:false},
+	shortDescription:String
 });
 
 schema.statics.getNewToken = function(id, callback){

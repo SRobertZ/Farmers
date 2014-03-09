@@ -41,6 +41,10 @@ app.factory('auth', ['dataStorage', '$rootScope', function (dataStorage,$rootSco
 
     var auth = {};
 
+    auth.token = function(){
+        return  dataStorage.get('token');
+    }
+
     auth.unAuth = function(){
        dataStorage.drop('token'); 
        $rootScope.$broadcast("unauthorized");

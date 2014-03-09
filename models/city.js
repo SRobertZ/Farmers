@@ -1,8 +1,7 @@
 var mongoose = require('mongoose');
 
 var schema = mongoose.Schema({
-	cityName:String,
-	cityId:{type:String, index:true},
+	cityName:{type:String,index:true},
 	citytype:String,
 });
 

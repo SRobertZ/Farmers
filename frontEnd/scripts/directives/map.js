@@ -2,6 +2,9 @@ myApp.directive('map', function () {
     return {
         restrict: 'EA',
         replace: true,
+        scope:{
+        	chooseRegion:'='
+        },
         templateUrl: "partials/map.html",
         controller: function ($scope, $element) {
 
@@ -38,7 +41,8 @@ myApp.directive('map', function () {
 				if ($scope.selected)
 					angular.element(document.querySelector('#'+$scope.selected)).removeClass('highlight');
 				$scope.selected = event.target.id;
-				angular.element(document.querySelector('#'+$scope.selected)).addClass('highlight');					
+				angular.element(document.querySelector('#'+$scope.selected)).addClass('highlight');
+				$scope.chooseRegion($scope.selected);
 			}
 
 			$scope.hint = function(event){

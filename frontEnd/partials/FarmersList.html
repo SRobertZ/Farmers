@@ -1,0 +1,26 @@
+                <div class="list_fermers">
+					<div class="title">{{regionName}}</div>
+					<div class="list_name" ng-if = "whiteList.length">Фермеры района</div>
+					<ul>
+						<li ng-repeat="f in whiteList" ng-click="showProfile(f)">
+							<a href="#" class="profile_link">
+								<span class="photo"><img ng-src="f.avatar" alt=""></span>
+								<span class="name">{{f.fullName}}</span>
+								<span class="desc">{{f.shortDesc}}</span>
+							</a>
+						</li>
+					</ul>
+
+					<div class="black_list" ng-if = "blackList.length">
+						<div class="list_name">В черном списке</div>
+						<ul>
+							<li ng-repeat="f in blackList" ng-click="showProfile(f)">
+								<a href="#" class="profile_link">
+									<span class="photo"><img ng-src="f.avatar" alt=""></span>
+									<span class="name">{{f.fullName}}</span>
+									<span class="desc">{{f.shortDesc}}</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>

@@ -15,7 +15,6 @@ myApp.directive('loggedHeader', ['API', 'authorization', 'auth', function (API, 
             function getUserId() {
                 userToken = auth.token();
                 API.getUserId(userToken).then(function (data) {
-                    debugger;
                     $scope.userId = data.data.id;
                 })
             }

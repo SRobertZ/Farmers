@@ -11,16 +11,7 @@ function getUserId(req,res,next){
 	});
 }
 
-function getUserId(req,res,next){
-    console.log('hello');
-	console.log(req.body.token);
-	User.findOne({token:req.body.token},function(err,user){
-		if (err) next(err);
-		if (user)
-			res.json({id:user._id})
-		else res.json(401,{loggedIn:false});
-	});
-}
+
 
 
 exports.add_routes = function (app) {

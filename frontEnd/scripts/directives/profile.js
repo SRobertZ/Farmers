@@ -1,4 +1,4 @@
-myApp.directive('profile', function () {
+myApp.directive('profile',['API', 'auth', function (api, auth) {
     return {
         restrict: 'A',
         replace: true,
@@ -14,11 +14,11 @@ myApp.directive('profile', function () {
             $scope.fullDescription = '';
 
             var getUserInfo = function () {
-                $scope.fullName = profileId;
+                 
             }
 
             getUserInfo();
         }
     };
-});
+}]);
 

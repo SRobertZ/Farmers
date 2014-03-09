@@ -73,7 +73,7 @@ app.factory('authorization', ['API', 'dataStorage', function (API,dataStorage) {
     return authorization;
 }]);
 
-app.factory('httpResponseInterceptor',['auth', function httpInterceptor(auth,$q, $rootScope) {
+app.factory('httpResponseInterceptor',['auth', '$q','$rootScope', function httpInterceptor(auth,$q, $rootScope) {
     return function (promise) {
         var success = function (response) {
             return response;

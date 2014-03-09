@@ -27,11 +27,13 @@ app.factory('API', ['$http', 'configuration', function ($http, configuration) {
     }
 
     API.getUserId = function (token) {
-        return $http.post(this.getServerName() + 'user/getId', {token:token});
+        var url = this.getServerName() + 'user/getId';
+        console.log(url);
+        return $http.post(url, { token: token });
     }
 
 
 
 
     return API;
-}]);
+} ]);

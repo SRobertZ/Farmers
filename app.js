@@ -10,6 +10,8 @@ conf = config.getSiteConfig();
 
 var app = express();
 
+console.log('Hi');
+
 middleware(app);
 routes(app);
 errors(app);

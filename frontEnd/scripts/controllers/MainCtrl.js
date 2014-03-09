@@ -3,9 +3,10 @@
 var myAppCtrl = angular.module('controllers', []);
 
 myAppCtrl.controller('MainCtrl', ['$scope', 'authorization', 'dataStorage', function ($scope, authorization, dataStorage) {
-    
+    $scope.user ={};
+
     function setUser(){
-        $scope.user = dataStorage.get("token");
+        $scope.user.token = dataStorage.get("token");
     }    
 
     setUser();
@@ -19,7 +20,7 @@ myAppCtrl.controller('MainCtrl', ['$scope', 'authorization', 'dataStorage', func
     })
 
     $scope.showProfile = function(id){
-      $scope.profileId = id;  
+      $scope.user.id = id;  
     }
 
     

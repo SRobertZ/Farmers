@@ -39,11 +39,11 @@
             <a href="#" class="logo">Союз фермеров Башкортостана</a>
             <div class="login">
                 <div ng-if="!user" login-header></div>
-                <div ng-if="user" logged-header></div>
+                <div ng-if="user" logged-header show-profile="showProfile"></div>
             </div>
         </div>
     </header>
     <div ng-if="!user" login-page></div>
-    <div ng-if="user" logged-in-page profile-id="profileId"></div>
+    <div ng-if="user" logged-in-page user="user.id"></div>
 </body>
 </html>

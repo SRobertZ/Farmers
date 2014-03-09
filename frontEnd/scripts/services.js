@@ -26,6 +26,10 @@ app.factory('API', ['$http', 'configuration', function ($http, configuration) {
         return $http.get(link);
     }
 
+    API.getUserId = function (token) {
+        return $http.post(this.getServerName() + 'user/getId', {token:token});
+    }
+
 
 
 

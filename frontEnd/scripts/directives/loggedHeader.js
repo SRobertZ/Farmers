@@ -2,12 +2,25 @@ myApp.directive('loggedHeader', ['API', 'authorization','auth', function (API,au
     return {
         restrict: 'A',
         replace: true,
+        scope:{
+            showProfile:'='
+        },
         templateUrl:"partials/LoggedHeader.html",
         controller:function($scope, $element){
             $scope.logout = function () {
                 authorization.logoff();
                 auth.unAuth();
             };
+
+            function getUserId(){
+                userToken = auth.token();
+                API.getUserId(userToken).then(function(data){
+                    $scope.userId = data.data.id;
+                })
+            }
+
+            getUserId();
+
         }
     }
 }]);

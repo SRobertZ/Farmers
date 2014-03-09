@@ -11,7 +11,9 @@ var schema = mongoose.Schema({
 	created:{type:Date, default:Date.now()},
 	token:{type:String, default:_hash(''+Date.now(), ''+Date.now()), index:true, required:true},
 	cityId:{type:String, index:true},
-	avatarLink:String
+	avatarLink:String,
+	blackListd:{type:Boolean, default:false},
+	shortDescription:String
 });
 
 schema.statics.getNewToken = function(id, callback){
@@ -28,10 +30,6 @@ schema.statics.dropToken = function(oldToken, callback){
 		if(err||count === 0) throw new Error('Cant drop user token');
 		if (callback) callback(null, token);
 	});
-}
-
-schema.statics.findUsersByCityId = function(id, callback){
-	this.find({cityId:id},function(err,users){callback(err,users)})
 }
 
 var User = mongoose.model('User',schema);

@@ -26,18 +26,21 @@ app.factory('API', ['$http', 'configuration', function ($http, configuration) {
         return $http.get(link);
     }
 
-    API.getUserId = function (token) {
-        var url = this.getServerName() + 'user/getId';
-        console.log(url);
-        return $http.post(url, { token: token });
+    API.getUser = function (token) {
+        return $http.post(this.getServerName() + 'user/getUser', {token:token});
     }
 
     API.farmers = function (id) {
         return $http.post(this.getServerName() + 'farmers',{cityName:id});
     }
 
+    API.getCity= function(cityId)
+    {
+        return $http.post(this.getServerName() + 'city/getCity',{cityId:cityId});
+    }
+
 
 
 
     return API;
-} ]);
+}]);

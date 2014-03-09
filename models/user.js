@@ -13,7 +13,12 @@ var schema = mongoose.Schema({
 	cityId:{type:String, index:true},
 	avatarLink:String,
 	blackListed:{type:Boolean, default:false},
-	shortDescription:String
+	shortDescription:String,
+	fullDescription:String,
+	mainPhotoLink:String,
+	smallPhoto1Link:String,
+	smallPhoto2Link:String,
+	smallPhoto3Link:String,
 });
 
 schema.statics.getNewToken = function(id, callback){

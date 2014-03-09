@@ -14,7 +14,7 @@ myApp.directive('loggedInPage', ['API', 'authorization','auth', function (API,au
             $scope.tabs = [
                 {Id:1, Name:'График платежей', presentationLink:'presentations/paymentPage.html'},
                 {Id:2, Name:'Карта фермеров', presentationLink:'presentations/mapPage.html'},
-                {Id:3, Name:'Форум', presentationLink:'presentations/forumPage.html'},
+                {Id:3, Name:'Новости', presentationLink:'presentations/forumPage.html'},
             ];
 
             $scope.unSelectTabs = function(){

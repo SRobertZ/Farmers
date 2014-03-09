@@ -1,21 +1,24 @@
-myApp.directive('loggedHeader', ['API', 'authorization', 'auth', function (API, authorization, auth) {
+myApp.directive('loggedHeader', ['API', 'authorization','auth', function (API,authorization,auth){
     return {
         restrict: 'A',
         replace: true,
-        scope: {
-            showProfile: '='
+        scope:{
+            showProfile:'='
         },
-        templateUrl: "partials/LoggedHeader.html",
-        controller: function ($scope, $element) {
+        templateUrl:"partials/LoggedHeader.html",
+        controller:function($scope, $element){
             $scope.logout = function () {
                 authorization.logoff();
                 auth.unAuth();
             };
 
-            function getUserId() {
+            function getUserId(){
                 userToken = auth.token();
-                API.getUserId(userToken).then(function (data) {
-                    $scope.userId = data.data.id;
+                API.getUser(userToken).then(function(data){
+                    $scope.userId = data.data.user._id;
+                    $scope.user = data.data.user;
+                    if (!$scope.user.avatarLink) $scope.user.avatarLink = 'images/NoAvatar.jpg';
+                    $scope.user.fullName = $scope.user.name+' '+$scope.user.surname;
                 })
             }
 
@@ -23,4 +26,4 @@ myApp.directive('loggedHeader', ['API', 'authorization', 'auth', function (API, 
 
         }
     }
-} ]);
+}]);

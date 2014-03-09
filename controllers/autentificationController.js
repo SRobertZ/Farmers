@@ -39,7 +39,7 @@ var User = require('../models/user.js').User;
     var cityId = null;
     if (req.body.district) cityId = req.body.district._id;
     //console.dir(req.body.cityId);
- 		var user = new User({ email: req.body.email, hash: hash, salt:salt, name:req.body.name, surname:req.body.surname, phone:req.body.phone, cityId:cityId});
+ 		var user = new User({ email: req.body.email, hash: hash, salt:salt, name:req.body.name, surname:req.body.surname, phone:req.body.phone, cityId:cityId, shortDescription:'',fullDescription:'',mainPhotoLink:'',smallPhoto1Link:'',smallPhoto2Link:'',smallPhoto3Link:'',avatarLink:''});
  		
   		user.save(function(err, user) {
     		return err

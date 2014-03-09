@@ -1,13 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Союз фермеров</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-    
+    <head>
+        <meta charset="UTF-8">
+        <title>Союз фермеров</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/font-awesome.css">
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+        <link href="http://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+
 
         <script src="lib/angular.js"></script>
         <script src="lib/angular-local-storage.js"></script>
@@ -15,7 +15,7 @@
         <script src="lib/jquery.svg.js"></script>
         <script src="lib/jquery.svgdom.js"></script>
 
-        
+
         <script src="scripts/services.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/MainCtrl.js"></script>
@@ -28,24 +28,35 @@
         <script src="scripts/directives/forum.js"></script>
         <script src="scripts/directives/mapPage.js"></script>
         <script src="scripts/directives/FarmersList.js"></script>
-        <script src="scripts/directives/profile.js"></script>                
+        <script src="scripts/directives/profile.js"></script>
         <script src="scripts/directives/paymentPlan.js"></script>
         <script src="scripts/directives/loggedInPage.js"></script>
         <script src="scripts/directives/compileView.js"></script>
         <script src="scripts/directives/map.js"></script>
 
-</head>
-<body ng-app="Farmers" ng-controller="MainCtrl">
-    <header>
-        <div class="wrap">
-            <a href="#" class="logo">Союз фермеров Башкортостана</a>
-            <div class="login">
-                <div ng-if="!user.token" login-header></div>
-                <div ng-if="user.token" logged-header show-profile="showProfile"></div>
+        <!-- Put this script tag to the <head> of your page -->
+        <script type="text/javascript" src="//vk.com/js/api/openapi.js?105"></script>
+
+        <script type="text/javascript">
+            VK.init({ apiId: 4234459, onlyWidgets: true });
+            VK.Widgets.Comments("vk_comments", { limit: 10, width: "520", attach: "*" });
+        </script>
+
+
+    </head>
+    <body ng-app="Farmers" ng-controller="MainCtrl">
+        <header>
+            <div class="wrap">
+                <a href="#" class="logo">Союз фермеров Башкортостана</a>
+                <div class="login">
+                    <div ng-if="!user.token" login-header></div>
+                    <div ng-if="user.token" logged-header show-profile="showProfile"></div>
+                </div>
             </div>
-        </div>
-    </header>
-    <div ng-if="!user.token" login-page></div>
-    <div ng-if="user.token" logged-in-page user="user.id"></div>
-</body>
+        </header>
+        <div ng-if="!user.token" login-page></div>
+        <div ng-if="user.token" logged-in-page user="user.id"></div>
+    </body>
+
+
 </html>

@@ -37,7 +37,8 @@ var User = require('../models/user.js').User;
     console.log(pass);
 		var hash = _hash(salt,pass);
     var cityId = null;
-    if (req.body.cityId) cityId = req.body.cityId.cityId
+    if (req.body.district) cityId = req.body.district._id;
+    //console.dir(req.body.cityId);
  		var user = new User({ email: req.body.email, hash: hash, salt:salt, name:req.body.name, surname:req.body.surname, phone:req.body.phone, cityId:cityId});
  		
   		user.save(function(err, user) {

@@ -6,8 +6,8 @@
             </ul>
         </nav>
 
-        <div ng-if='!showProfile' class="content" compile="selectedTab.presentation"></div>
-        <div ng-if='showProfile' profile></div>
+        <div ng-if='!profileId' class="content" compile="selectedTab.presentation"></div>
+        <div ng-if='profileId' profile prfile-id="profileId"></div>
 
         <div footer></div>
     </div>        

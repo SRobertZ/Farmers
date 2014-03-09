@@ -2,11 +2,11 @@
 					<div class="title">{{regionName}}</div>
 					<div class="list_name" ng-if = "whiteList.length">Фермеры района</div>
 					<ul>
-						<li ng-repeat="f in whiteList" ng-click="showProfile(f)">
+						<li ng-repeat="f in whiteList" ng-click="showProfile(f._id)">
 							<a href="#" class="profile_link">
-								<span class="photo"><img ng-src="f.avatar" alt=""></span>
+								<span class="photo"><img ng-src="{{f.avatarLink}}" alt=""></span>
 								<span class="name">{{f.fullName}}</span>
-								<span class="desc">{{f.shortDesc}}</span>
+								<span class="desc">{{f.shortDescription}}</span>
 							</a>
 						</li>
 					</ul>
@@ -14,11 +14,11 @@
 					<div class="black_list" ng-if = "blackList.length">
 						<div class="list_name">В черном списке</div>
 						<ul>
-							<li ng-repeat="f in blackList" ng-click="showProfile(f)">
+							<li ng-repeat="f in blackList" ng-click="showProfile(f._id)">
 								<a href="#" class="profile_link">
-									<span class="photo"><img ng-src="f.avatar" alt=""></span>
+									<span class="photo"><img ng-src="{{f.avatarLink}}" alt=""></span>
 									<span class="name">{{f.fullName}}</span>
-									<span class="desc">{{f.shortDesc}}</span>
+									<span class="desc">{{f.shortDescription}}</span>
 								</a>
 							</li>
 						</ul>

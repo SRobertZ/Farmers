@@ -5,7 +5,7 @@ module.exports = function(req,res,next){
 	if(!token)
 		return res.json(401, {errorDescription:'Login First'});
 	User.findOne({token:token}, function(err,user){
-		if (token!=user.token) return res.json(401, {errorDescription:'Login First'});
+		if (!user||token!=user.token) return res.json(401, {errorDescription:'Login First'});
 		next();	
 	})
 	

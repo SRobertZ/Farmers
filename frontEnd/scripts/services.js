@@ -30,6 +30,10 @@ app.factory('API', ['$http', 'configuration', function ($http, configuration) {
         return $http.post(this.getServerName() + 'user/getId', {token:token});
     }
 
+    API.farmers = function (id) {
+        return $http.post(this.getServerName() + 'farmers',{cityName:id});
+    }
+
 
 
 

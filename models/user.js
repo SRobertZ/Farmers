@@ -12,7 +12,7 @@ var schema = mongoose.Schema({
 	token:{type:String, default:_hash(''+Date.now(), ''+Date.now()), index:true, required:true},
 	cityId:{type:String, index:true},
 	avatarLink:String,
-	blackListd:{type:Boolean, default:false},
+	blackListed:{type:Boolean, default:false},
 	shortDescription:String
 });
 

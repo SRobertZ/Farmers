@@ -18,7 +18,7 @@ rest.get('http://basicdata.ru/api/json/fias/addrobj/'+rb).on('complete',function
 	var data = _data.data;
 	var num = 1;
 	for (var i = data.length - 1; i >= 0; i--) {
-		if (data[i].actstatus===1){
+		if (data[i].actstatus===1 && data[i].shortname==='р-н'){
 			console.log(num++ +' '+data[i].offname);
 			var city = new City({cityName:data[i].offname, cityId:data.aoguid, citytype:data[i].shortname});
 			city.save(function(err,city){

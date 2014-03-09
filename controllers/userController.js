@@ -25,9 +25,6 @@ function getUserId(req,res,next){
 
 exports.add_routes = function (app) {
 	app.post("/user/getId",isLoggedIn, getUserId);
-
-
-
 }
 
 

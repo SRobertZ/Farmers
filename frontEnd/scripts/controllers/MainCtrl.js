@@ -19,6 +19,10 @@ myAppCtrl.controller('MainCtrl', ['$scope', 'authorization', 'dataStorage', func
         setUser();    
     })
 
+    $scope.$on('showProfile', function (id) {
+        $scope.showProfile(id);    
+    })
+
     $scope.showProfile = function(id){
       $scope.user.id = id;  
     }

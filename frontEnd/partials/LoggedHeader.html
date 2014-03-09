@@ -1,7 +1,7 @@
 				<div class="profile_block">
 					<a href="#" class="profile_link" ng-click="showProfile(userId)">
-						<span class="photo"><img src="images/img5.jpg" alt=""></span>
-						<span class="name">Николаев Юрий</span>
+						<span class="photo"><img ng-src="{{user.avatarLink}}" alt=""></span>
+						<span class="name">{{user.fullName}}</span>
 					</a>
 					<a href="#" class="logout" ng-click="logout()"><i class="fa fa-sign-out"></i></a>
 				</div>

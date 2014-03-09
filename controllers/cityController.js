@@ -19,6 +19,12 @@ function getFarmers(req, res, next){
 	}
 	],function(err, farmers){
 		if (err) next(err);
+		for(var x in farmers){
+			farmers[x].hash = '';
+			farmers[x].salt = '';
+			farmers[x].created = '';
+			farmers[x].token = '';
+		}
 		res.json(farmers);
 	});
 }

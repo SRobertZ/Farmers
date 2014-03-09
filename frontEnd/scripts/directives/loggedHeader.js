@@ -14,8 +14,11 @@ myApp.directive('loggedHeader', ['API', 'authorization','auth', function (API,au
 
             function getUserId(){
                 userToken = auth.token();
-                API.getUserId(userToken).then(function(data){
-                    $scope.userId = data.data.id;
+                API.getUser(userToken).then(function(data){
+                    $scope.userId = data.data.user._id;
+                    $scope.user = data.data.user;
+                    if (!$scope.user.avatarLink) $scope.user.avatarLink = 'images/NoAvatar.jpg';
+                    $scope.user.fullName = $scope.user.name+' '+$scope.user.surname;
                 })
             }
 

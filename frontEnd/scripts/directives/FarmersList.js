@@ -11,10 +11,11 @@ myApp.directive('farmersList', ['API',function (API) {
                 init($scope.regionName);
             });
 
-            $scope.blackList = [];
-            $scope.whiteList = [];
 
-            function init(regionName){
+
+            function init(regionName){            
+                $scope.blackList = [];
+                $scope.whiteList = [];
                 if (regionName){
                     API.farmers(regionName).then(function(data){
                         for(var x in data.data){

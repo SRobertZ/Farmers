@@ -26,6 +26,18 @@ exports.md5 = function md5 (msg) {
     return crypto.createHash('md5').update(msg).digest("hex");
 };
 
+exports.newGuid =  function () {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    };
+
+            return s4() + s4() +  s4() +  s4() + 
+                s4() + s4() + s4() + s4();
+
+};
+
 
 exports.hash = hash;
 exports.generatePass = generatePass;

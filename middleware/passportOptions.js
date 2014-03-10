@@ -13,6 +13,7 @@ module.exports = function(passport){
   					var hash = _hash(user.salt,password);
   					if (user.hash===hash) {
               User.getNewToken(user._id, function(err,token){
+                user.token = token;
                 return done(null,user); 
               });
             } else return done(null, false, { message: 'Incorrect password.' });

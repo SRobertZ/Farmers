@@ -27,7 +27,11 @@ app.factory('dataStorage', ['localStorageService', function (localStorageService
         localStorageService.add(key, value);
     }
     dataStorage.get = function (key) {
-        return localStorageService.get(key);
+        try
+        {
+            var token = localStorageService.get(key);
+        } catch(e){token = null}  
+        return token;
     }
 
     dataStorage.drop = function (key) {
@@ -52,7 +56,7 @@ app.factory('auth', ['dataStorage', '$rootScope', function (dataStorage,$rootSco
 
     auth.auth = function(token){
        dataStorage.add('token',token); 
-       $rootScope.$broadcast("authorized");
+       $rootScope.$broadcast("authorized", token);
     }   
 
     return auth;

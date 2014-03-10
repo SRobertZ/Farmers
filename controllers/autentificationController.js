@@ -57,7 +57,6 @@ var User = require('../models/user.js').User;
                           token:token});
  		
   		user.save(function(err, user) {
-        console.dir(user.token);
     		return err
       			? next(err)
       			: req.logIn(user, function(err) {

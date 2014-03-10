@@ -22,6 +22,10 @@ function generatePass(length){
 	return ''.randomString(length);
 }
 
+exports.md5 = function md5 (msg) {
+    return crypto.createHash('md5').update(msg).digest("hex");
+};
+
 
 exports.hash = hash;
 exports.generatePass = generatePass;

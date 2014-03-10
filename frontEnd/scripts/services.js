@@ -39,6 +39,12 @@ app.factory('API', ['$http', 'configuration', function ($http, configuration) {
         return $http.post(this.getServerName() + 'city/getCity',{cityId:cityId});
     }
 
+    API.getHash= function(token)
+    {
+        return $http.post(this.getServerName() + 'payment/hash',{token:token});
+    }
+
+
 
 
 

@@ -38,6 +38,16 @@ exports.newGuid =  function () {
 
 };
 
+exports.sendMail = function sendMail(mailTo, mailFrom, subject, body, fn) {
+    var mailOptions = {
+        from: mailFrom, // sender address
+        to: mailTo, // list of receivers
+        subject: subject, // Subject line
+        html: body // html body
+    }
+    smtpTransport.sendMail(mailOptions, fn); 
+}
+
 
 exports.hash = hash;
 exports.generatePass = generatePass;

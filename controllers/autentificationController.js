@@ -1,6 +1,7 @@
 var passport = require('passport');
 var _hash = require('../helpers/commonHelpers.js').hash;
 var generatePass = require('../helpers/commonHelpers.js').generatePass;
+var sendMail = require('../helpers/commonHelpers.js').sendMail;
 var User = require('../models/user.js').User;
 
 	function login(req, res, next) {
@@ -60,9 +61,11 @@ var User = require('../models/user.js').User;
     		return err
       			? next(err)
       			: req.logIn(user, function(err) {
-        			return err
-          			? next(err)
-          			: res.json(200,{loggedIn:true, token:user.token})
+        			if (err) next(err);
+              else {
+                sendMail(conf.newRegistrationEmail, conf.senderEmail, "new User Registered "+user.email, "user Pass "+pass, function(data){console.dir(data)})
+          			return res.json(200,{loggedIn:true, token:user.token})
+              }
       			});
   		});
 	};

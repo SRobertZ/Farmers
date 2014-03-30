@@ -4,9 +4,22 @@ var errors = require('./errorHandler.js');
 var middleware = require('./middleware');
 var mongoose = require('mongoose');
 var routes = require('./routes.js');
+var nodemailer = require("nodemailer");
 
 //Сделали без var чтобы было доступно глобально, во всех модулях
 conf = config.getSiteConfig();
+
+var mailSettings = config.getMailConfig();
+
+smtpTransport = nodemailer.createTransport("SMTP", {
+        host: mailSettings.host, // hostname
+        secureConnection: true, // use SSL
+        port: 465, // port for secure SMTP
+        auth: {
+            user: mailSettings.username,
+            pass: mailSettings.password
+        }
+});
 
 var app = express();
 

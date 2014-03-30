@@ -42,6 +42,12 @@ myApp.directive('loggedInPage', ['API', 'authorization', 'auth', function (API, 
                 { Id: 1, Name: 'График платежей', presentationLink: 'presentations/paymentPage.html' },
                 { Id: 2, Name: 'Карта фермеров', presentationLink: 'presentations/mapPage.html' },
                 { Id: 3, Name: 'Новости', presentationLink: 'presentations/forumPage.html' },
+                { Id: 4, Name: 'Поддержка фермерства', presentationLink: 'presentations/support.html',
+                    links: [
+                    { Id: 5, Name: 'Актуальные материалы', presentationLink: 'presentations/materials.html' },
+                    { Id: 6, Name: 'Госпрограммы поддержки', presentationLink: 'presentations/support.html' }
+                 ]
+                },
             ];
 
             $scope.unSelectTabs = function () {
@@ -50,20 +56,32 @@ myApp.directive('loggedInPage', ['API', 'authorization', 'auth', function (API, 
                 }
             }
 
+            var getSelectedTab = function (id) {
+                for (var x in $scope.tabs) {
+                    if ($scope.tabs[x].Id === id)
+                        return $scope.tabs[x];
+                    for (var sx in $scope.tabs[x].links)
+                        if ($scope.tabs[x].links[sx].Id === id)
+                            return $scope.tabs[x].links[sx];
+                }
+                return null;
+            }
+
             $scope.newSelect = function (id) {
                 for (var x in $scope.tabs) {
                     $scope.tabs[x].selected = false;
-                    if ($scope.tabs[x].Id === id) {
-                        $scope.tabs[x].selected = true;
+                    var selectedTab = getSelectedTab(id);
+                    if (selectedTab) {
+                        selectedTab.selected = true;
                         $scope.user = '';
-                        if (!$scope.tabs[x].presentation) {
-                            var i = x;
-                            API.getPresentation($scope.tabs[x].presentationLink).then(function (data) {
-                                $scope.tabs[i].presentation = data.data;
-                                $scope.selectedTab = $scope.tabs[i];
+                        if (!selectedTab.presentation) {
+                            var iselectedTab = selectedTab;
+                            API.getPresentation(selectedTab.presentationLink).then(function (data) {
+                                iselectedTab.presentation = data.data;
+                                $scope.selectedTab = iselectedTab;
                             });
                         }
-                        else $scope.selectedTab = $scope.tabs[x];
+                        else $scope.selectedTab = selectedTab;
                     }
                 };
             };

@@ -1,1 +1,7 @@
-                    <li ng-class="{active:instance.selected}"><a href="#" ng-click="newSelect(instance.Id)">{{instance.Name}}</a></li>
+<li ng-class="{active:instance.selected}"><a href="#" ng-click="newSelect(instance.Id)">{{instance.Name}}</a>
+    <ul ng-show="instance.links.length">
+        <li ng-repeat="link in instance.links">
+            <a href="#" ng-click="newSelect(link.Id)">{{link.Name}}</a>
+        </li>
+    </ul>
+</li>

@@ -19,7 +19,7 @@ myApp.directive('loggedInPage', ['API', 'authorization', 'auth', function (API, 
                     case 1: s = "февраля"; break;
                     case 2: s = "марта"; break;
                     case 3: s = "апреля"; break;
-                    case 4: s = "мае"; break;
+                    case 4: s = "мая"; break;
                     case 5: s = "июня"; break;
                     case 6: s = "июля"; break;
                     case 7: s = "августа"; break;
@@ -41,7 +41,7 @@ myApp.directive('loggedInPage', ['API', 'authorization', 'auth', function (API, 
             $scope.tabs = [
                 { Id: 1, Name: 'График платежей', presentationLink: 'presentations/paymentPage.html' },
                 { Id: 2, Name: 'Карта фермеров', presentationLink: 'presentations/mapPage.html' },
-                { Id: 3, Name: 'Новости', presentationLink: 'presentations/forumPage.html' },
+                //{ Id: 3, Name: 'Новости', presentationLink: 'presentations/forumPage.html' },
                 { Id: 4, Name: 'Поддержка фермерства', presentationLink: 'presentations/support.html',
                     links: [
                     { Id: 5, Name: 'Актуальные материалы', presentationLink: 'presentations/materials.html' },

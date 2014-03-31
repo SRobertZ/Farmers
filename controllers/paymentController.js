@@ -17,7 +17,7 @@ function getHash(req, res, next){
             		email:user.email, 
             		price:1000, 
             		orderid:user._id, 
-            		serviceName:'Ежемесячный членский взнос',
+            		serviceName: user._id,
             		curency:'RUR',
             		successUrl: conf.successUrl,
             		failUrl: conf.failUrl

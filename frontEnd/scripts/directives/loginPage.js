@@ -2,7 +2,7 @@ myApp.directive('loginPage', ['API', 'authorization','auth', function (API,autho
     return {
         restrict: 'A',
         replace: true,
-        templateUrl:"partials/LoginPage.html",
+        templateUrl:"partials/loginPage.html",
         controller:function($scope, $element){
             API.cities().then(function(cities){
                 $scope.districts = cities.data;

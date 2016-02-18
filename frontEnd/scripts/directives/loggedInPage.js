@@ -2,7 +2,7 @@ myApp.directive('loggedInPage', ['API', 'authorization', 'auth', function (API, 
     return {
         restrict: 'A',
         replace: true,
-        templateUrl: "partials/LoggedInPage.html",
+        templateUrl: "partials/loggedInPage.html",
         scope: {
             user: '='
         },

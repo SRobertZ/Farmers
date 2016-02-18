@@ -5,7 +5,7 @@ myApp.directive('farmersList', ['API',function (API) {
         scope : {
         	regionName:'=',
         },
-        templateUrl: "partials/FarmersList.html",
+        templateUrl: "partials/farmersList.html",
         controller: function ($scope, $element) {
             $scope.$watch('regionName', function(value){
                 init($scope.regionName);

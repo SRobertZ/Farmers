@@ -2,7 +2,7 @@ myApp.directive('loginHeader', ['API', 'authorization','auth', function (API,aut
     return {
         restrict: 'A',
         replace: true,
-        templateUrl:"partials/LoginHeader.html",
+        templateUrl:"partials/loginHeader.html",
         controller:function($scope, $element){
 
     $scope.showLogin = function(){

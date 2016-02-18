@@ -5,7 +5,7 @@ myApp.directive('loggedHeader', ['API', 'authorization','auth', function (API,au
         scope:{
             showProfile:'='
         },
-        templateUrl:"partials/LoggedHeader.html",
+        templateUrl:"partials/loggedHeader.html",
         controller:function($scope, $element){
             $scope.logout = function () {
                 authorization.logoff();

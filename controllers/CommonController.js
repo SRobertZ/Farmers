@@ -11,4 +11,4 @@ exports.add_routes = function (app) {
 		res.send("Hello");
 	})
 
-}
+};

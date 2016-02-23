@@ -20,8 +20,9 @@ exports.getSiteConfig = function () {
 exports.getMailConfig = function () {
   configValues =  {
     host: 'email-smtp.us-west-2.amazonaws.com',
-    username: 'AKIAIMQCKVVXGX4MEYHQ',
-    password: 'AuEfVSZQalm5UfDFNO2YiAWP8B5npFvCxfctv6iOBLpt'
+    //ses-smtp-user.20160223-234321
+    username: 'AKIAJYI4AJOVUXNO2MVQ',
+    password: 'Ai5edONm5UxJz49RpT3w7y59GiLD5Il/xPwBL6pqnoYV'
   };
   return configValues;
 };

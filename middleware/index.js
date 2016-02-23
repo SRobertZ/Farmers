@@ -29,4 +29,4 @@ module.exports = function(app){
 		res.locals.session = req.session;
 		next();
 	});
-}
+};

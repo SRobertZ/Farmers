@@ -19,9 +19,9 @@ exports.getSiteConfig = function () {
 
 exports.getMailConfig = function () {
   configValues =  {
-    host: 'email-smtp.us-east-1.amazonaws.com',
-    username: 'AKIAIDFZW4EZ4WEGHTKA',
-    password: 'AnHWclzTKs4Q2qIJgvmtfZN2CAUBvXZaz/8R5zdkOYoH'
+    host: 'email-smtp.us-west-2.amazonaws.com',
+    username: 'AKIAIMQCKVVXGX4MEYHQ',
+    password: 'AuEfVSZQalm5UfDFNO2YiAWP8B5npFvCxfctv6iOBLpt'
   };
   return configValues;
 };

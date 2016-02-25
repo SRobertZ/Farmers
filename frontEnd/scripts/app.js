@@ -16,7 +16,7 @@ app.config(['$httpProvider', function ($httpProvider) {
 
 app.factory('configuration', function () {
     var config = {};
-    config.url = 'http://ec2-54-200-232-69.us-west-2.compute.amazonaws.com:3000/';
+    config.url = 'http://fermerrb.ru:3000/';
     return config;
 });
 
